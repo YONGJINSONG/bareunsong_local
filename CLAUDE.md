@@ -10,6 +10,6 @@
 - 금지: 환자 정보 필드, 실제 LLM API 유료 호출, 이 폴더 밖 수정, 시스템 전역 설정 변경
 - 이 저장소는 바른송치과의원 판이다(원본: https://github.com/GangJaeYu/NewDentalAX, MIT — LICENSE와 저작권 표기는 지우지 않는다). 바른송 추가·변경은 `docs/DECISIONS.md`의 D-Bnn 줄에 적는다
 - 실제 서버를 인터넷에 띄우지 않는다(원내망 전용). 원본의 구경용 체험판(gh-pages)은 원본 저장소 것이며, 이 판에서 체험판을 새로 공개하려면 원장님께 먼저 묻는다
-- git push: 원장님이 요청할 때만 `origin`(바른송치과 저장소)으로 올린다. 원본은 `upstream`이며 원본으로는 올리지 않는다. 올리기 전에 비밀값·개인정보(실제 이메일·키·환자 정보)가 없는지 확인하고, 강제 푸시는 확인 없이 하지 않는다
-- 커밋 작성자 이메일은 GitHub noreply 주소를 쓴다. 개인 이메일을 커밋에 남기지 않는다
+- git push: 원장님이 요청할 때만 `origin`(https://github.com/YONGJINSONG/bareunsong_local)으로 올린다. 원본은 `upstream`이며 원본으로는 올리지 않는다. 올리기 전에 비밀값·개인정보(실제 이메일·키·환자 정보)가 없는지 확인하고, 강제 푸시는 확인 없이 하지 않는다
+- 커밋 작성자 이메일은 GitHub noreply 주소(`YONGJINSONG@users.noreply.github.com`)를 쓴다. 개인 이메일을 커밋에 남기지 않는다
 - 화면 코드를 바꾸면 `npm run build:web`으로 `web/dist`를 다시 만들어 함께 커밋한다(설치 PC는 빌드하지 않는다)
