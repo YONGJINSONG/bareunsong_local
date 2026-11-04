@@ -6,7 +6,7 @@ import { expect, test, type IsoServer } from './fixtures.ts';
 
 const ADMIN = { clinicName: '하늘숲치과', name: '한원장', username: 'keyadmin', password: 'Key-Admin-Pass-4', withDemo: true };
 const STAFF = { username: 'keystaff', password: 'Key-Staff-Pass-4', name: '정하늘' };
-const ACCENT = 'rgb(12, 124, 118)';
+const ACCENT = 'rgb(27, 58, 107)';
 
 let server: IsoServer;
 const url = (p: string) => `${server.baseURL}${p}`;

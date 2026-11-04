@@ -199,7 +199,7 @@ test.describe.serial('앱 셸·첫 설정·로그인', () => {
         expect(m.topOverlap, `${label} 상단바 겹침`).toBe(false);
         expect(m.outside, `${label} 카드가 본문 밖으로`).toBe(0);
         expect(m.theme).toBe(theme);
-        expect(m.bg, `${label} 바탕색`).toBe(theme === 'dark' ? 'rgb(14, 20, 20)' : 'rgb(244, 247, 247)');
+        expect(m.bg, `${label} 바탕색`).toBe(theme === 'dark' ? 'rgb(13, 17, 24)' : 'rgb(244, 246, 249)');
         if (width > 1100) {
           expect(Math.round(m.sideWidth), `${label} 메뉴 폭`).toBe(232);
           expect(m.bottomVisible).toBe(false);
@@ -265,7 +265,7 @@ test.describe.serial('앱 셸·첫 설정·로그인', () => {
     const ring = await page.evaluate(
       `(() => { const s = getComputedStyle(document.activeElement); return { style: s.outlineStyle, width: s.outlineWidth, color: s.outlineColor }; })()`,
     );
-    expect(ring).toEqual({ style: 'solid', width: '2px', color: 'rgb(12, 124, 118)' });
+    expect(ring).toEqual({ style: 'solid', width: '2px', color: 'rgb(27, 58, 107)' });
     await page.keyboard.press('Enter');
     await expect(page).toHaveURL(url('/'));
     await expect(page.getByRole('heading', { level: 1, name: new RegExp(`${ADMIN.name}님`) })).toBeVisible();

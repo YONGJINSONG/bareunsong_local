@@ -8,7 +8,7 @@ import { expect, test, type IsoServer } from './fixtures.ts';
 
 const ADMIN = { clinicName: '하늘숲치과', name: '한원장', username: 'pwaadmin', password: 'Pwa-Admin-Pass-5', withDemo: true };
 const PHONE = { viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, isMobile: true, hasTouch: true };
-const THEME_COLOR = '#0C7C76';
+const THEME_COLOR = '#1B3A6B';
 
 /** 390px에서 가로 스크롤을 재는 주요 화면(경로와 다 그려졌다고 볼 제목) */
 const SCREENS: { path: string; heading: string | RegExp }[] = [
@@ -88,7 +88,7 @@ test.describe.serial('휴대폰 홈 화면 추가·390px', () => {
     const href = await page.locator('link[rel="manifest"]').getAttribute('href');
     expect(href).toBe('/manifest.webmanifest');
     await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute('content', THEME_COLOR);
-    await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', '원내 AX');
+    await expect(page.locator('meta[name="apple-mobile-web-app-title"]')).toHaveAttribute('content', '바른송 AX');
 
     // 브라우저가 실제로 읽은 매니페스트(Chromium 개발 도구 통로)
     const cdp = await ctx.newCDPSession(page);
@@ -106,7 +106,7 @@ test.describe.serial('휴대폰 홈 화면 추가·390px', () => {
       background_color: string;
       icons: { src: string; sizes: string; type: string; purpose?: string }[];
     };
-    expect(m).toMatchObject({ name: '원내 AX', short_name: '원내 AX', start_url: '/', scope: '/', display: 'standalone', lang: 'ko', theme_color: THEME_COLOR });
+    expect(m).toMatchObject({ name: '바른송치과 원내 AX', short_name: '바른송 AX', start_url: '/', scope: '/', display: 'standalone', lang: 'ko', theme_color: THEME_COLOR });
     expect(m.background_color).toMatch(/^#[0-9A-Fa-f]{6}$/);
 
     // 매니페스트 응답 자체
