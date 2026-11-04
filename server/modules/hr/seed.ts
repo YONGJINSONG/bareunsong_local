@@ -9,9 +9,10 @@ import { readClinic } from '../admin/clinic.ts';
 import { seedTrainingDemo } from './training-seed.ts';
 import { countLeaveDays, isClinicOpen, type LeaveStatus, type LeaveType } from '../../../shared/schemas/leave.ts';
 import { seedRosterDemo } from './roster-seed.ts';
+import { seedAttendanceDemo } from './attendance-seed.ts';
 
 /** 이 모듈이 소유한 업무 테이블(초기화 때 비울 대상). 근무표·교육·온보딩 테이블은 각 태스크가 더한다 */
-export const tables: readonly string[] = ['leave_requests', 'leave_allowances', 'roster'];
+export const tables: readonly string[] = ['leave_requests', 'leave_allowances', 'roster', 'attendance'];
 
 /** 데모 연차 신청(가상). offset은 기준일로부터 며칠 뒤(음수면 전), span은 달력 날 수 */
 export const DEMO_LEAVES: ReadonlyArray<{ user: string; type: LeaveType; offset: number; span?: number; status: LeaveStatus; reason?: string; rejectReason?: string }> = [
@@ -61,7 +62,10 @@ export function seedDemo(db: Db, ctx: SeedContext): void {
   // 근무표 4주(phase-04-task-01, roster-seed.ts). 근무 유형은 061 마이그레이션이 넣는다
   seedRosterDemo(db, ctx);
   seedTrainingDemo(db, ctx); // 교육·온보딩(phase-04-task-02, training-seed.ts)
-  if (db.get('SELECT 1 AS x FROM leave_requests LIMIT 1')) return;
+  if (db.get('SELECT 1 AS x FROM leave_requests LIMIT 1')) {
+    seedAttendanceDemo(db, ctx); // 출퇴근(바른송 추가, attendance-seed.ts)
+    return;
+  }
   const today = kstDate(ctx.clock.now());
   const year = Number(today.slice(0, 4));
   const hours = readClinic(db).hours;
@@ -117,4 +121,6 @@ export function seedDemo(db: Db, ctx: SeedContext): void {
       if (userId !== null) db.run('INSERT OR IGNORE INTO leave_allowances (user_id, year, days) VALUES (?, ?, ?)', [userId, year, a.days]);
     }
   });
+  // 출퇴근(바른송 추가, attendance-seed.ts). 근무표·휴가를 보고 넣으므로 맨 뒤에 둔다
+  seedAttendanceDemo(db, ctx);
 }

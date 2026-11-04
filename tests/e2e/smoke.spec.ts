@@ -4,7 +4,7 @@
 // 서버는 spec 파일마다 따로 띄운 격리 서버다(tests/e2e/fixtures.ts).
 import { expect, test } from './fixtures.ts';
 
-test('phase-01-task-01 AC5: 첫 화면이 "치과 원내 AX" 문서 제목(병원 이름 정하기 전)과 첫 설정(또는 로그인) 화면을 보여 준다', async ({ page }) => {
+test('phase-01-task-01 AC5: 첫 화면이 "바른송치과 원내 AX" 문서 제목(병원 이름 정하기 전)과 첫 설정(또는 로그인) 화면을 보여 준다', async ({ page }) => {
   const errors: string[] = [];
   page.on('pageerror', (e) => errors.push(e.message));
   page.on('console', (m) => {
@@ -13,7 +13,7 @@ test('phase-01-task-01 AC5: 첫 화면이 "치과 원내 AX" 문서 제목(병�
   const res = await page.goto('/');
   expect(res?.status()).toBe(200);
   // 첫 설정 전에는 데모 병원 이름(하늘숲치과)이 아니라 일반 이름을 쓴다
-  await expect(page).toHaveTitle('치과 원내 AX');
+  await expect(page).toHaveTitle('바른송치과 원내 AX');
   // spec마다 새 서버(tests/e2e/fixtures.ts)라 사용자가 없어서 첫 설정 화면으로 간다
   await expect(page).toHaveURL(/\/setup$/);
   await expect(page.getByRole('heading', { level: 1, name: '첫 설정' })).toBeVisible();

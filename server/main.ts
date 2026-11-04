@@ -52,7 +52,7 @@ export function startupMessage(port: number, addrs: string[], version: string): 
   const lines = [
     '',
     '==================================================',
-    `  치과 원내 AX 서버가 켜졌어요 (버전 ${version})`,
+    `  바른송치과 원내 AX 서버가 켜졌어요 (버전 ${version})`,
     '==================================================',
     `  이 PC에서 열기:        http://localhost:${port}`,
   ];

@@ -1,8 +1,8 @@
 {
-  "name": "haneulsoop-clinic-ax",
+  "name": "bareunsong-clinic-ax",
   "version": "0.1.0",
   "private": true,
-  "description": "치과 원내 업무 AX 웹 서비스(하늘숲치과 원내 업무)",
+  "description": "바른송치과의원 원내 업무 AX 웹 서비스(GangJaeYu/NewDentalAX 기반)",
   "type": "module",
   "engines": {
     "node": ">=24"

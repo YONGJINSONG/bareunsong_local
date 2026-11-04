@@ -15,7 +15,7 @@ export default function SetupPage() {
   const { signedIn } = useSession();
   const navigate = useNavigate();
   const formRef = useRef<HTMLFormElement>(null);
-  const [form, setForm] = useState({ clinicName: '', name: '', username: '', password: '', confirm: '', withDemo: false });
+  const [form, setForm] = useState({ clinicName: '바른송치과의원', name: '', username: '', password: '', confirm: '', withDemo: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);

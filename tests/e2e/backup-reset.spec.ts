@@ -144,7 +144,7 @@ test.describe.serial('백업·복원·데모 초기화 화면', () => {
     await expect(backupRows(page)).toHaveCount(4);
 
     const [download] = await Promise.all([page.waitForEvent('download'), backupRows(page).first().getByRole('link', { name: /백업 내려받기$/ }).click()]);
-    expect(download.suggestedFilename()).toMatch(/^haneulsoop-backup-20261102-\d{6}-manual(-\d+)?\.zip$/);
+    expect(download.suggestedFilename()).toMatch(/^bareunsong-backup-20261102-\d{6}-manual(-\d+)?\.zip$/);
     const saved = path.join(server.dataDir, 'download.zip');
     await download.saveAs(saved);
     const files = unzipSync(new Uint8Array(fs.readFileSync(saved)));

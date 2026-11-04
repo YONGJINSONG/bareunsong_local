@@ -1,5 +1,5 @@
 // 이 파일이 하는 일: 대시보드(/, FR-008). GET /api/dashboard 한 번으로 요약 숫자 6개와 카드 10개(DESIGN §4 순서)를 채운다.
-// 빠른 행동: "출고 기록"은 이 화면에서 출고 빠른 입력 대화상자를 열어 버튼 → 품목 → 저장 세 번에 끝난다(NFR-009). 공지 쓰기·AI 문서 작성은 해당 화면으로 간다.
+// 빠른 행동: 맨 앞 "출근하기·퇴근하기"(바른송 추가, hr/AttendanceQuick.tsx)는 바로 찍는다. "출고 기록"은 이 화면에서 출고 빠른 입력 대화상자를 열어 버튼 → 품목 → 저장 세 번에 끝난다(NFR-009). 공지 쓰기·AI 문서 작성은 해당 화면으로 간다.
 // 역할별 표시(FR-008 AC4): 승인 대기·발주 진행·이번 달 지출은 원장·실장만 보이고, 직원 칸에는 "내 휴가 신청"이 대신 보인다.
 // 카드 본문은 dashboardCards.tsx, 글자 계산은 dashboardLib.ts, 모양은 dashboard.css에 있다.
 import { useState } from 'react';
@@ -13,6 +13,7 @@ import { formatDateLong, greeting } from '../lib/format.ts';
 import { useSession } from '../lib/session.tsx';
 import { useApi } from '../lib/useApi.ts';
 import { QuickOutDialog } from './inventory/QuickOutDialog.tsx';
+import { AttendanceQuickButton } from './hr/AttendanceQuick.tsx';
 import { AiQuickCard, DueCard, ExpenseCard, MovesCard, NoticeCard, OrdersCard, RosterSlotCard, StockCard, TodoCard, WeekCard } from './dashboardCards.tsx';
 import { dueHint, stockHint, todaySummary, won } from './dashboardLib.ts';
 import './dashboard.css';
@@ -44,6 +45,7 @@ export default function DashboardPage() {
         summary={summary}
         actions={
           <>
+            <AttendanceQuickButton />
             <Button icon="box" onClick={() => setQuickOut(true)}>
               출고 기록
             </Button>

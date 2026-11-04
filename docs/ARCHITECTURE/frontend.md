@@ -62,6 +62,7 @@ AppShell(상단바 + 사이드바 + 본문) 안에 들어가는 화면이다. �
 | `/docs/library` · `/docs/library/:id` | 서식 보관함 | S | 062 |
 | `/hr/roster` | 근무표 | S | 081 |
 | `/hr/leave` | 연차·휴가 | S | 080 |
+| `/hr/attendance` | 출퇴근 기록(바른송 추가: 원내 와이파이에서 출근·퇴근, 실장 이상은 전 직원 기록·고치기·CSV) | S | D-B01 |
 | `/hr/training` | 교육 이수 기록 | S | 082 |
 | `/hr/onboarding` | 신규 직원 온보딩 | S | 083 |
 | `/hr/hiring` | 채용 공고·면접 질문 | S | 084 |

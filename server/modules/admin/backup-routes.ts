@@ -30,7 +30,7 @@ export async function backupRoutes(app: FastifyInstance): Promise<void> {
     audit(auditCtx(req), 'backup.download', 'backup', req.params.name, null);
     return reply
       .header('content-type', 'application/zip')
-      .header('content-disposition', `attachment; filename="haneulsoop-backup-${req.params.name}.zip"`)
+      .header('content-disposition', `attachment; filename="bareunsong-backup-${req.params.name}.zip"`)
       .header('cache-control', 'no-store')
       .send(Buffer.from(zip));
   });

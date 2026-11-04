@@ -22,7 +22,7 @@ try {
   for (const o of OUTPUTS) {
     const page = await browser.newPage({ viewport: { width: o.size, height: o.size } });
     const inner = o.maskable ? Math.round(o.size * 0.8) : o.size;
-    const html = `<html><body style="margin:0;width:${o.size}px;height:${o.size}px;display:grid;place-items:center;background:${o.maskable ? '#0C7C76' : 'transparent'}"><img src="${dataUrl}" width="${inner}" height="${inner}"></body></html>`;
+    const html = `<html><body style="margin:0;width:${o.size}px;height:${o.size}px;display:grid;place-items:center;background:${o.maskable ? '#1B3A6B' : 'transparent'}"><img src="${dataUrl}" width="${inner}" height="${inner}"></body></html>`;
     await page.setContent(html);
     await page.screenshot({ path: path.join(DIR, o.file), omitBackground: !o.maskable });
     await page.close();

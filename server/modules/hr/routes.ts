@@ -7,6 +7,7 @@ import { registerRosterRoutes } from './roster-routes.ts';
 import { registerTrainingRoutes } from './training-routes.ts';
 import { registerOnboardingRoutes } from './onboarding-routes.ts';
 import { registerRosterSuggestRoutes } from './roster-suggest-routes.ts';
+import { registerAttendanceRoutes } from './attendance-routes.ts';
 
 /** hr 모듈 API를 등록한다 */
 export default async function routes(app: FastifyInstance): Promise<void> {
@@ -15,4 +16,5 @@ export default async function routes(app: FastifyInstance): Promise<void> {
   await registerTrainingRoutes(app);
   registerOnboardingRoutes(app);
   registerRosterSuggestRoutes(app);
+  registerAttendanceRoutes(app); // 출퇴근(바른송 추가)
 }

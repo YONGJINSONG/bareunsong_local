@@ -51,6 +51,7 @@ const GROUPS = [
     caps: {
       'users.view': '직원 목록 보기(근무표·연차 승인에 필요)',
       'leave.approve': '연차·휴가 승인·반려',
+      'attendance.manage': '전 직원 출퇴근 기록 보기·고치기·내보내기(바른송 추가)',
       'roster.edit': '근무표·근무 유형 편집',
       'orders.manage': '발주서 만들기·발주·입고 처리',
       'vendors.manage': '거래처 등록·수정',
@@ -91,6 +92,7 @@ const GROUPS = [
       'facility.log': '장비·멸균 점검 기록',
       'handover.write': '인수인계 작성',
       'leave.request': '본인 연차 신청·취소',
+      'attendance.punch': '본인 출근·퇴근 찍기(허용한 원내 와이파이에서만, 바른송 추가)',
       'documents.write': '문서 작성(본인 문서 고치기)',
       'savedtexts.own': '본인 스크립트·템플릿 보관',
       'notifications.read': '내 알림 보기',

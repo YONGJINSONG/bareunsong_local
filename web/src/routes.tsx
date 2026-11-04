@@ -47,6 +47,7 @@ export const SHELL_ROUTES: readonly RouteDef[] = [
   { path: '/docs/library/:id', load: () => import('./pages/docs/LibraryDetailPage.tsx') },
   { path: '/hr/roster', load: () => import('./pages/hr/RosterPage.tsx') },
   { path: '/hr/leave', load: () => import('./pages/hr/LeavePage.tsx') },
+  { path: '/hr/attendance', load: () => import('./pages/hr/AttendancePage.tsx') },
   { path: '/hr/training', load: () => import('./pages/hr/TrainingPage.tsx') },
   { path: '/hr/onboarding', load: () => import('./pages/hr/OnboardingPage.tsx') },
   { path: '/hr/hiring', load: () => import('./pages/hr/HiringPage.tsx') },

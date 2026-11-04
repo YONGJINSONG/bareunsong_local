@@ -1,0 +1,47 @@
+/* 이 파일이 하는 일: 출퇴근 기록 화면(/hr/attendance, 바른송 추가 기능)의 모양. 위쪽 출근·퇴근 카드(날짜·큰 시계·오늘 근무·출퇴근 시각·큰 버튼),
+   허용하지 않은 와이파이 안내, 달 이동 줄, 상태 칩 묶음, 대화상자 입력 줄. 색은 tokens.css 변수만 쓰고, 안내는 아이콘·글자로도 알 수 있게 한다.
+   720px 이하(휴대폰)에서는 카드 안을 세로로 쌓고 버튼을 가로로 꽉 채운다. */
+
+.att-stack { display: grid; gap: var(--gap); margin-top: var(--gap); min-width: 0; }
+
+.att-clock { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1.1fr); gap: 20px; align-items: center; }
+.att-clock .when { display: grid; gap: 2px; min-width: 0; }
+.att-clock .date { color: var(--muted); font-size: var(--fs-small); font-weight: 600; }
+.att-clock .time { font-size: 40px; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em; color: var(--fg); }
+.att-clock .shift { color: var(--accent-strong); font-size: var(--fs-small); font-weight: 600; overflow-wrap: anywhere; }
+
+.att-today { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 14px; margin: 0; padding: 12px 14px; border-radius: var(--r-md); background: var(--surface-2); font-size: var(--fs-body); }
+.att-today dt { color: var(--muted); font-weight: 600; }
+.att-today dd { margin: 0; font-weight: 700; }
+
+.att-clock .act { display: grid; gap: 8px; justify-items: stretch; min-width: 0; }
+.att-btn { height: 52px; font-size: 17px; }
+.att-done { display: flex; align-items: center; gap: 8px; margin: 0; padding: 12px 14px; border-radius: var(--r-md); background: var(--ok-weak); color: var(--ok); font-weight: 700; }
+.att-blocked { display: flex; gap: 8px; align-items: flex-start; padding: 12px 14px; border-radius: var(--r-md); background: var(--warn-weak); color: var(--warn); font-size: 13px; font-weight: 600; overflow-wrap: anywhere; }
+.att-blocked b { color: var(--fg); }
+.att-clock .act small { font-size: var(--fs-xs); }
+
+.att-chips { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+
+.att-month { display: flex; align-items: center; gap: 10px; }
+.att-month b { font-size: 15px; min-width: 96px; text-align: center; }
+
+.att-filter { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: var(--fs-small); font-weight: 600; }
+.att-filter .input, .att-filter select { min-width: 140px; }
+
+.att-form { display: grid; gap: 12px; }
+.att-form .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.att-hint { margin: -4px 0 0; color: var(--accent-strong); font-size: var(--fs-small); font-weight: 600; }
+.att-mine { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 8px 12px; border-radius: var(--r-md); background: var(--surface-2); font-size: var(--fs-small); }
+
+@media (max-width: 1100px) {
+  .att-clock { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .att-clock .act { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .att-clock { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .att-clock .time { font-size: 34px; }
+}
+@media (max-width: 520px) {
+  .att-form .row2 { grid-template-columns: 1fr; }
+}

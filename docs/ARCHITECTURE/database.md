@@ -100,6 +100,7 @@
 | `roster` | `user_id`, `date`, `shift_type_id`, `note` | PK`(user_id, date)` |
 | `leave_requests` | `user_id`, `type CHECK(annual/half_am/half_pm/sick/other)`, `start_on`, `end_on`, `days REAL`, `reason`, `status CHECK(pending/approved/rejected/canceled)`, `decided_by`, `decided_at`, `reject_reason`, `created_at` | 인덱스 `(status)`, `(start_on)` |
 | `leave_allowances` | `user_id`, `year`, `days` | PK`(user_id, year)` |
+| `attendance` (063, 바른송 추가) | `user_id`, `work_date`, `clock_in`, `clock_out?`, `in_ip?`, `out_ip?`, `edited_by?`, `edited_at?`, `edit_reason?`, `created_at` | UNIQUE`(user_id, work_date)`, 퇴근 > 출근, 고친 기록은 사유 필수 |
 | `trainings` | `name`, `cycle_months NULL`, `description`, `legal_task_id NULL`, `active` | |
 | `training_records` | `training_id`, `user_id`, `completed_on`, `file_id NULL`, `note` | 다음 예정일 = 가장 최근 이수일 + 주기 |
 | `onboarding_templates` | `job_type`, `title`, `items TEXT(JSON 문자열 배열)` | |

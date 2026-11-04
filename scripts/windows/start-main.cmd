@@ -6,7 +6,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 rem 프로젝트 폴더(이 파일 기준 두 단계 위)로 이동한다
 for %%i in ("%~dp0..\..") do set "APP_DIR=%%~fi"
 cd /d "!APP_DIR!"
-title 치과 원내 AX 서버
+title 바른송치과 원내 AX 서버
 
 echo.
 echo  치과 원내 AX 서버를 켜는 중이에요...

@@ -69,6 +69,7 @@ export const NAV_GROUPS: readonly NavGroup[] = [
     label: '인사·근무',
     icon: 'cal',
     items: [
+      { path: '/hr/attendance', label: '출퇴근 기록' },
       { path: '/hr/roster', label: '근무표' },
       { path: '/hr/leave', label: '연차·휴가' },
       { path: '/hr/training', label: '교육 이수 기록' },

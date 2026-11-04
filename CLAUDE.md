@@ -8,6 +8,8 @@
 - 결정 기록: `docs/DECISIONS.md`에 덧붙인다
 - 모든 소스 파일 첫 5줄 안에 `이 파일이 하는 일:` 한국어 주석을 둔다. 화면 문구와 오류 문구는 쉬운 한국어로 쓴다
 - 금지: 환자 정보 필드, 실제 LLM API 유료 호출, 이 폴더 밖 수정, 시스템 전역 설정 변경
-- 외부 공개는 구경용 체험판(서버 없는 정적 화면, `npm run demo-site` → `gh-pages` 브랜치 → https://gangjaeyu.github.io/NewDentalAX/)만 사용자가 허락했다(2026-11-04). 실제 서버를 인터넷에 띄우지 않는다
-- git push: 사용자가 요청할 때만 `origin`(https://github.com/GangJaeYu/NewDentalAX)의 `main`으로 올린다. 올리기 전에 비밀값·개인정보(실제 이메일·키·환자 정보)가 없는지 확인하고, 강제 푸시(이력 덮어쓰기)는 사용자 확인 없이 하지 않는다
-- 커밋 작성자 이메일은 GitHub noreply 주소(`50131046+GangJaeYu@users.noreply.github.com`)를 쓴다. 개인 이메일을 커밋에 남기지 않는다
+- 이 저장소는 바른송치과의원 판이다(원본: https://github.com/GangJaeYu/NewDentalAX, MIT — LICENSE와 저작권 표기는 지우지 않는다). 바른송 추가·변경은 `docs/DECISIONS.md`의 D-Bnn 줄에 적는다
+- 실제 서버를 인터넷에 띄우지 않는다(원내망 전용). 원본의 구경용 체험판(gh-pages)은 원본 저장소 것이며, 이 판에서 체험판을 새로 공개하려면 원장님께 먼저 묻는다
+- git push: 원장님이 요청할 때만 `origin`(바른송치과 저장소)으로 올린다. 원본은 `upstream`이며 원본으로는 올리지 않는다. 올리기 전에 비밀값·개인정보(실제 이메일·키·환자 정보)가 없는지 확인하고, 강제 푸시는 확인 없이 하지 않는다
+- 커밋 작성자 이메일은 GitHub noreply 주소를 쓴다. 개인 이메일을 커밋에 남기지 않는다
+- 화면 코드를 바꾸면 `npm run build:web`으로 `web/dist`를 다시 만들어 함께 커밋한다(설치 PC는 빌드하지 않는다)

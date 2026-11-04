@@ -83,10 +83,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  // 브라우저 탭 제목: 첫 설정 전에는 "치과 원내 AX", 병원 이름이 정해지면 "<병원 이름> 원내 AX"
+  // 브라우저 탭 제목: 첫 설정 전에는 "바른송치과 원내 AX", 병원 이름이 정해지면 "<병원 이름> 원내 AX"
   const clinicName = info?.clinicName?.trim() || null;
   useEffect(() => {
-    document.title = clinicName ? `${clinicName} 원내 AX` : '치과 원내 AX';
+    document.title = clinicName ? `${clinicName} 원내 AX` : '바른송치과 원내 AX';
   }, [clinicName]);
 
   // 다른 API가 401을 받으면: 로그인 상태를 지우고 원래 주소를 들고 로그인 화면으로

@@ -288,7 +288,7 @@ describe('데모 데이터', () => {
     const ctx = { clock: a.clock, scale: 1 };
     await seedAdminDemo(a.db, ctx);
     seedHrDemo(a.db, ctx);
-    expect(tables).toEqual(['leave_requests', 'leave_allowances', 'roster']); // roster는 phase-04-task-01이 더했다
+    expect(tables).toEqual(['leave_requests', 'leave_allowances', 'roster', 'attendance']); // attendance: 바른송 추가(D-B01) // roster는 phase-04-task-01이 더했다
     const count = a.db.get<{ n: number }>('SELECT COUNT(*) AS n FROM leave_requests')?.n ?? 0;
     expect(count).toBe(10);
     seedHrDemo(a.db, ctx); // 두 번 넣어도 늘지 않는다

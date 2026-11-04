@@ -58,7 +58,7 @@ type PiiType = 'rrn' | 'phone' | 'email' | 'card' | 'account' | 'passport'
 | GET `/audit` | A | `?from&to&userId&action` → `Page<AuditRow>`; `?format=csv` | 005 |
 | GET/PUT `/settings/clinic` | S 조회 / A 수정 | clinic JSON | 042 AC1 |
 | GET/PUT `/settings/privacy` | A | privacy JSON | 032 AC3 |
-| GET/PUT `/settings/:group` (`inventory`·`leave`·`backup`·`legal`) | A | JSON | — |
+| GET/PUT `/settings/:group` (`inventory`·`leave`·`backup`·`legal`·`attendance`) | A | JSON | — |
 | GET `/backups` | A | → `[{name, createdAt, reason, sizeBytes}]` | 006 |
 | POST `/backups` | A | → 생성된 항목 | 006 AC3 |
 | GET `/backups/:name/download` | A | zip | 006 AC3 |
@@ -137,6 +137,11 @@ type PiiType = 'rrn' | 'phone' | 'email' | 'card' | 'account' | 'passport'
 | POST `/leave/:id/decide` | M | `{approve, reason?}` → `{request, warnings}` | 080 AC2·4 |
 | POST `/leave/:id/cancel` | 본인(pending일 때만) | | 080 |
 | GET/PUT `/leave/allowances?year=` | 조회 S(본인), 수정 A | | 080 AC3 |
+| GET `/attendance/today` | S | `{date, shift, record, next:'in'\|'out'\|'done', device:{ip, allowed, allowedNetworks}}` | D-B01 |
+| POST `/attendance/clock-in` · `/attendance/clock-out` | S(`attendance.punch`), 허용 와이파이 대역·서버 PC에서만(아니면 403 `reason: ATTENDANCE_NETWORK`) | 하루 출근 1번·퇴근 1번, 자정 넘긴 퇴근은 20시간 안 열린 기록에 | D-B01 |
+| GET `/attendance?month&userId` | S(직원은 본인만), M은 전 직원 | `{month, records, summary}` 지각·조퇴는 근무표 기준 | D-B01 |
+| PUT `/attendance/records` | M(`attendance.manage`) | `{userId, workDate, clockIn, clockOut, reason}` 사유 필수·감사 로그 | D-B01 |
+| GET `/attendance/export.csv?month` | M | UTF-8 BOM CSV | D-B01 |
 | GET/POST/PATCH `/trainings` · POST `/trainings/:id/records` | 조회 S, 기록은 본인 또는 M | | 082 |
 | GET/POST/PATCH `/onboarding/templates` · `/onboarding/assignments` · POST `/onboarding/assignments/:id/items/:idx` | 템플릿 M, 체크는 본인 또는 멘토 | | 083 |
 

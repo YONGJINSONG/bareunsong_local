@@ -27,6 +27,7 @@ export const API_RULES: readonly ApiRule[] = [
   r('GET|PUT', '/settings/privacy', 'settings.manage'),
   r('GET|PUT', '/settings/inventory', 'settings.manage'),
   r('GET|PUT', '/settings/leave', 'settings.manage'),
+  r('GET|PUT', '/settings/attendance', 'settings.manage'),
   r('GET|PUT', '/settings/backup', 'settings.manage'),
   r('GET|PUT', '/settings/legal', 'settings.manage'),
   r('GET|POST', '/backups', 'backup.manage'),
@@ -67,6 +68,11 @@ export const API_RULES: readonly ApiRule[] = [
   r('POST', '/roster/apply', 'roster.edit'),
   r('POST', '/leave/:id/decide', 'leave.approve'),
   r('PUT', '/leave/allowances', 'leave.allowance.edit'),
+  // 출퇴근(바른송 추가). 본인 기록 보기·찍기는 모든 로그인 사용자, 다른 직원 보기는 라우트가 attendance.manage로 확인한다
+  r('POST', '/attendance/clock-in', 'attendance.punch'),
+  r('POST', '/attendance/clock-out', 'attendance.punch'),
+  r('PUT', '/attendance/records', 'attendance.manage'),
+  r('GET', '/attendance/export.csv', 'attendance.manage'),
   r('POST', '/onboarding/templates', 'onboarding.manage'),
   r('PATCH', '/onboarding/templates/:id', 'onboarding.manage'),
   // 04-02 보고(05-02 반영): 아래는 주소만으로 권한이 정해지는데 모듈 assertCan으로만 막혀 있던 줄. 이중 방어로 표에도 둔다

@@ -7,7 +7,7 @@ import { Icon } from '../../components/Icon.tsx';
 interface AuthLayoutProps {
   title: string;
   lead?: ReactNode;
-  /** 카드 위쪽 작은 병원 표시(없으면 "치과 원내 AX") */
+  /** 카드 위쪽 작은 병원 표시(없으면 "바른송치과 원내 AX") */
   brand?: string | null;
   wide?: boolean;
   children: ReactNode;
@@ -23,7 +23,7 @@ export function AuthLayout({ title, lead, brand, wide, children, foot }: AuthLay
           <span className="mark" aria-hidden="true">
             <Icon name="tooth" />
           </span>
-          <span>{brand ? `${brand} · 원내 AX` : '치과 원내 AX'}</span>
+          <span>{brand ? `${brand} · 원내 AX` : '바른송치과 원내 AX'}</span>
         </div>
         <div>
           <h1>{title}</h1>

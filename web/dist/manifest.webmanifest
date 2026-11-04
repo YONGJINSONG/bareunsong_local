@@ -1,13 +1,13 @@
 {
-  "name": "원내 AX",
-  "short_name": "원내 AX",
+  "name": "바른송치과 원내 AX",
+  "short_name": "바른송 AX",
   "description": "치과 원내 업무(재고·공지·근무·AI 문서)를 한곳에서",
   "lang": "ko",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#F4F7F7",
-  "theme_color": "#0C7C76",
+  "background_color": "#F4F6F9",
+  "theme_color": "#1B3A6B",
   "icons": [
     { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
